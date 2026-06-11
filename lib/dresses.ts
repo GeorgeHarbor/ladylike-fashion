@@ -27,7 +27,6 @@ export interface Dress {
   pricePerNight: number;
   retail: number;
   blurb: string;
-  image: string;
 }
 
 export const SILHOUETTE_LABELS: Record<Silhouette, string> = {
@@ -57,7 +56,6 @@ export const DRESSES: Dress[] = [
     pricePerNight: 68,
     retail: 1480,
     blurb: "Sliva se niz bokove i prašta gotovo sve ispod struka.",
-    image: "/dresses/la-valse.jpg",
   },
   {
     id: "hepburn",
@@ -74,7 +72,6 @@ export const DRESSES: Dress[] = [
     pricePerNight: 74,
     retail: 1690,
     blurb: "Stroga kolona. Kad stane, ništa u prostoriji ne stoji bolje.",
-    image: "/dresses/hepburn.jpg",
   },
   {
     id: "gilded-hour",
@@ -91,7 +88,6 @@ export const DRESSES: Dress[] = [
     pricePerNight: 120,
     retail: 3900,
     blurb: "Strog korset gore, balska dvorana dole. Struk mora biti iskren.",
-    image: "/dresses/gilded-hour.jpg",
   },
   {
     id: "solstice",
@@ -108,7 +104,6 @@ export const DRESSES: Dress[] = [
     pricePerNight: 58,
     retail: 1150,
     blurb: "Pripijena samo na grudima — ostalo je vetar. Najblaža haljina koju čuvamo.",
-    image: "/dresses/solstice.jpg",
   },
   {
     id: "vermeer",
@@ -125,7 +120,6 @@ export const DRESSES: Dress[] = [
     pricePerNight: 82,
     retail: 2100,
     blurb: "Slikarska i arhitektonska. Suknja nikada ne pita za bokove.",
-    image: "/dresses/vermeer.jpg",
   },
   {
     id: "night-bloom",
@@ -142,7 +136,6 @@ export const DRESSES: Dress[] = [
     pricePerNight: 96,
     retail: 2450,
     blurb: "Uz telo od grudi do kolena, a onda procveta. Elastični kadi je milostiv.",
-    image: "/dresses/night-bloom.jpg",
   },
   {
     id: "letter-to-jane",
@@ -159,7 +152,6 @@ export const DRESSES: Dress[] = [
     pricePerNight: 54,
     retail: 980,
     blurb: "Pravi preklop se vezuje po tebi, a ne obrnuto. Divno putuje.",
-    image: "/dresses/letter-to-jane.jpg",
   },
   {
     id: "tuileries",
@@ -176,7 +168,6 @@ export const DRESSES: Dress[] = [
     pricePerNight: 49,
     retail: 760,
     blurb: "Korektna za baštensku svečanost. Njiše se oko lista, velikodušna u suknji.",
-    image: "/dresses/tuileries.jpg",
   },
   {
     id: "oyster",
@@ -193,7 +184,6 @@ export const DRESSES: Dress[] = [
     pricePerNight: 62,
     retail: 1290,
     blurb: "Svetlost sveće u obliku haljine. Kosi kroj — senke šiju ostalo.",
-    image: "/dresses/oyster.jpg",
   },
   {
     id: "cigarette",
@@ -210,7 +200,6 @@ export const DRESSES: Dress[] = [
     pricePerNight: 66,
     retail: 1340,
     blurb: "Lakša sestra Hepburn — ista linija, s elastinom tamo gde ti treba.",
-    image: "/dresses/cigarette.jpg",
   },
   {
     id: "sable",
@@ -227,7 +216,6 @@ export const DRESSES: Dress[] = [
     pricePerNight: 45,
     retail: 690,
     blurb: "Smok od grudi do struka. Staje i utorak-tebi i subota-tebi.",
-    image: "/dresses/sable.jpg",
   },
   {
     id: "comete",
@@ -244,6 +232,5 @@ export const DRESSES: Dress[] = [
     pricePerNight: 110,
     retail: 3200,
     blurb: "Šljokice na mrežici nemaju ni milosti ni premca. Meri dvaput.",
-    image: "/dresses/comete.jpg",
   },
 ];

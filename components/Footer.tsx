@@ -58,7 +58,6 @@ export default function Footer() {
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-4 font-spec text-[10px] tracking-[0.18em] text-paper/40 uppercase">
           <p>© MMXXVI Ladylike Fashion — sve haljine su osigurane</p>
-          <p>Fotografije: Wikimedia Commons (MET, DPLA, Rijksmuseum)</p>
           <p className="flex items-center gap-3">
             <span className="tailor-cross" />
             Nacrtano u ateljeu

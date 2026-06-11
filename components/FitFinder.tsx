@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { useMemo, useState } from "react";
 import { findFits, tailorsNote, type Measurements, type Zone, type ZoneFit } from "@/lib/fit";
+import DressSketch from "./DressSketch";
 
 const SLIDERS: {
   zone: Zone;
@@ -155,13 +155,11 @@ export default function FitFinder() {
                     key={dress.id}
                     className="group flex gap-4 border border-paper/25 bg-paper/[0.04] p-4 transition-colors duration-300 hover:border-blush hover:bg-paper/[0.08]"
                   >
-                    <div className="relative w-16 shrink-0 self-start overflow-hidden border border-paper/25 aspect-[3/4]">
-                      <Image
-                        src={dress.image}
-                        alt={dress.name}
-                        fill
-                        sizes="64px"
-                        className="object-cover transition-transform duration-500 group-hover:scale-[1.07]"
+                    <div className="w-16 shrink-0">
+                      <DressSketch
+                        silhouette={dress.silhouette}
+                        className="w-full text-paper/80 transition-colors duration-300 group-hover:text-blush"
+                        strokeWidth={3}
                       />
                     </div>
                     <div className="flex min-w-0 flex-1 flex-col gap-1.5">
