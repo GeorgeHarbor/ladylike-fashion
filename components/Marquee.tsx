@@ -1,10 +1,10 @@
 const ITEMS = [
-  "FW26 Collection",
-  "Fitted to the centimetre",
-  "Four-night rentals",
-  "Cleaned, pressed & couriered",
-  "Independent ateliers only",
-  "Insurance included",
+  "Kolekcija jesen–zima ’26",
+  "Po meri do centimetra",
+  "Iznajmljivanje na četiri noći",
+  "Očišćena, ispeglana i dostavljena",
+  "Samo nezavisni ateljei",
+  "Osiguranje uključeno",
 ];
 
 export default function Marquee() {

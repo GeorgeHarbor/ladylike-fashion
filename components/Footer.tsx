@@ -8,35 +8,36 @@ export default function Footer() {
               Ladylike
             </p>
             <p className="mt-4 max-w-sm text-[13px] leading-relaxed text-paper/55">
-              A dress rental atelier. Gowns by independent houses, measured
-              honestly, rented by the night, returned without guilt.
+              Atelje za iznajmljivanje haljina. Haljine nezavisnih kuća,
+              iskreno izmerene, iznajmljene po noći, vraćene bez griže
+              savesti.
             </p>
           </div>
 
           <div className="flex gap-14 font-spec text-[11px] tracking-[0.16em] uppercase">
             <ul className="flex flex-col gap-3">
-              <li className="text-paper/40">Visit</li>
+              <li className="text-paper/40">Poseti</li>
               <li>
                 <a href="#collection" className="link-draw">
-                  Collection
+                  Kolekcija
                 </a>
               </li>
               <li>
                 <a href="#fit-room" className="link-draw">
-                  Fit room
+                  Probna soba
                 </a>
               </li>
               <li>
                 <a href="#how" className="link-draw">
-                  The service
+                  Usluga
                 </a>
               </li>
             </ul>
             <ul className="flex flex-col gap-3">
-              <li className="text-paper/40">Write</li>
+              <li className="text-paper/40">Piši</li>
               <li>
-                <a href="mailto:atelier@ladylike.fashion" className="link-draw">
-                  atelier@ladylike.fashion
+                <a href="mailto:atelje@ladylike.fashion" className="link-draw">
+                  atelje@ladylike.fashion
                 </a>
               </li>
               <li>
@@ -56,10 +57,11 @@ export default function Footer() {
         <div className="stitch-h mt-14 text-paper/30" />
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-4 font-spec text-[10px] tracking-[0.18em] text-paper/40 uppercase">
-          <p>© MMXXVI Ladylike Fashion — all gowns insured</p>
+          <p>© MMXXVI Ladylike Fashion — sve haljine su osigurane</p>
+          <p>Fotografije: Wikimedia Commons (MET, DPLA, Rijksmuseum)</p>
           <p className="flex items-center gap-3">
             <span className="tailor-cross" />
-            Drafted in the atelier
+            Nacrtano u ateljeu
           </p>
         </div>
       </div>

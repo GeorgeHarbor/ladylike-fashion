@@ -9,17 +9,17 @@ export default function Collection() {
         <div>
           <p className="mb-3 flex items-center gap-3 font-spec text-[11px] tracking-[0.24em] text-oxblood uppercase">
             <span className="tailor-cross" />
-            The rail — FW26
+            Štender — jesen–zima ’26
           </p>
           <h2 className="font-display text-5xl font-medium tracking-tight sm:text-7xl">
-            Twelve dresses,
+            Dvanaest haljina,
             <br />
-            <span className="italic text-oxblood">no strangers.</span>
+            <span className="italic text-oxblood">nijedna neznanka.</span>
           </h2>
         </div>
         <p className="max-w-xs text-[14px] leading-relaxed text-ink-soft">
-          Every gown is sketched, measured and re-measured after each rental.
-          What you see on the chart is what arrives in the box.
+          Svaka haljina se skicira, meri i ponovo meri posle svakog
+          iznajmljivanja. Ono što vidiš na karti — to stiže u kutiji.
         </p>
       </Reveal>
 

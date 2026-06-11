@@ -3,21 +3,21 @@ import Reveal from "./Reveal";
 const STEPS = [
   {
     n: "01",
-    title: "Measure",
-    body: "Bust, waist, hips — three numbers, one borrowed tape measure. Our fit room does the rest, against the true cut of every gown.",
-    note: "takes 4 minutes",
+    title: "Izmeri se",
+    body: "Grudi, struk, bokovi — tri broja i jedan pozajmljen krojački metar. Naša probna soba radi ostalo, prema stvarnom kroju svake haljine.",
+    note: "traje 4 minuta",
   },
   {
     n: "02",
-    title: "Match",
-    body: "We show you only what will fit, with an honest word on where it runs snug or easy. No size roulette, no hopeful ordering.",
-    note: "to the centimetre",
+    title: "Uporedi",
+    body: "Pokazujemo ti samo ono što će ti stati, uz iskrenu reč gde je usko, a gde komotno. Bez ruleta veličina, bez poručivanja u nadi.",
+    note: "do centimetra",
   },
   {
     n: "03",
-    title: "Wear & return",
-    body: "Couriered pressed and insured, yours for four nights. Drop it in the box that it came in — cleaning is our problem, gladly.",
-    note: "four nights, all in",
+    title: "Ponesi i vrati",
+    body: "Stiže kurirom, ispeglana i osigurana, tvoja na četiri noći. Vrati je u kutiji u kojoj je došla — čišćenje je naša briga, i to rado.",
+    note: "četiri noći, sve uključeno",
   },
 ];
 
@@ -27,10 +27,10 @@ export default function HowItWorks() {
       <Reveal className="mb-14">
         <p className="mb-3 flex items-center gap-3 font-spec text-[11px] tracking-[0.24em] text-oxblood uppercase">
           <span className="tailor-cross" />
-          The service
+          Usluga
         </p>
         <h2 className="font-display text-5xl font-medium tracking-tight sm:text-7xl">
-          Cut, <span className="italic text-oxblood">not luck.</span>
+          Kroj, <span className="italic text-oxblood">ne sreća.</span>
         </h2>
       </Reveal>
 
@@ -40,8 +40,8 @@ export default function HowItWorks() {
             key={step.n}
             delay={i * 0.12}
             className={`relative px-0 py-8 md:px-10 md:py-2 ${
-              i > 0 ? "md:border-l-0" : ""
-            } ${i === 0 ? "md:pl-0" : ""} ${i === 2 ? "md:pr-0" : ""}`}
+              i === 0 ? "md:pl-0" : ""
+            } ${i === 2 ? "md:pr-0" : ""}`}
           >
             {i > 0 && (
               <span className="stitch-v absolute top-0 left-0 hidden h-full text-ink/40 md:block" />

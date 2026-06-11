@@ -132,13 +132,13 @@ export function findFits(m: Measurements): FitResult {
 export function tailorsNote(m: Measurements): string {
   const { bust, waist, hips } = m;
   if (hips - bust >= 7) {
-    return "Hips lead your line — bias slips and A-lines will love you; be careful with rigid mermaids.";
+    return "Bokovi vode tvoju liniju — slip haljine kosog kroja i A-linije će te obožavati; oprezno sa krutim sirenama.";
   }
   if (bust - hips >= 5) {
-    return "Your line leads from the shoulder — columns and empire cuts will sit beautifully.";
+    return "Tvoja linija kreće od ramena — kolone i empir krojevi sešće besprekorno.";
   }
   if (bust - waist >= 21 || hips - waist >= 23) {
-    return "A defined waist — corsetry, wraps and full skirts were drafted with you in mind.";
+    return "Izražen struk — korseti, preklopi i pune suknje crtani su baš za tebe.";
   }
-  return "A balanced line — nearly every silhouette in the atelier is yours to argue over.";
+  return "Skladna linija — gotovo svaka silueta u ateljeu je tvoja, samo biraj.";
 }

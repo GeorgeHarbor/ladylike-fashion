@@ -2,6 +2,11 @@
 
 import { useEffect, useRef, type CSSProperties } from "react";
 
+/**
+ * Scroll-triggered entrance. Content is visible by default (SSR, no-JS,
+ * screenshot tools); it is only hidden — then revealed on intersection —
+ * when JS runs and the element is genuinely below the fold.
+ */
 export default function Reveal({
   children,
   delay = 0,
@@ -18,6 +23,10 @@ export default function Reveal({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    // Already on screen (or nearly): leave it visible, no animation.
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.95) return;
+
+    el.classList.add("reveal");
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -36,7 +45,7 @@ export default function Reveal({
   return (
     <Tag
       ref={ref as React.Ref<never>}
-      className={`reveal ${className}`}
+      className={className}
       style={{ "--d": `${delay}s` } as CSSProperties}
     >
       {children}

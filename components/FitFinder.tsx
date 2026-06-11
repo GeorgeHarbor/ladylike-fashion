@@ -1,8 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import { findFits, tailorsNote, type Measurements, type Zone, type ZoneFit } from "@/lib/fit";
-import DressSketch from "./DressSketch";
 
 const SLIDERS: {
   zone: Zone;
@@ -11,15 +11,21 @@ const SLIDERS: {
   min: number;
   max: number;
 }[] = [
-  { zone: "bust", label: "Bust", hint: "fullest point, tape level", min: 75, max: 115 },
-  { zone: "waist", label: "Waist", hint: "narrowest point, breathe out", min: 55, max: 100 },
-  { zone: "hips", label: "Hips", hint: "fullest point, feet together", min: 80, max: 125 },
+  { zone: "bust", label: "Grudi", hint: "najpunija tačka, pantljika ravno", min: 75, max: 115 },
+  { zone: "waist", label: "Struk", hint: "najuža tačka, izdahni", min: 55, max: 100 },
+  { zone: "hips", label: "Bokovi", hint: "najšira tačka, stopala spojena", min: 80, max: 125 },
 ];
 
+const ZONE_LABEL: Record<Zone, string> = {
+  bust: "grudi",
+  waist: "struk",
+  hips: "bokovi",
+};
+
 const ZONE_FIT_LABEL: Record<ZoneFit, string> = {
-  snug: "snug",
-  true: "true",
-  relaxed: "easy",
+  snug: "usko",
+  true: "tačno",
+  relaxed: "komotno",
 };
 
 function FitChip({ zone, fit }: { zone: Zone; fit: ZoneFit }) {
@@ -33,7 +39,7 @@ function FitChip({ zone, fit }: { zone: Zone; fit: ZoneFit }) {
             : "border-ink/40 text-ink-soft"
       }`}
     >
-      {zone} · {ZONE_FIT_LABEL[fit]}
+      {ZONE_LABEL[zone]} · {ZONE_FIT_LABEL[fit]}
     </span>
   );
 }
@@ -56,17 +62,18 @@ export default function FitFinder() {
           <div>
             <p className="mb-3 flex items-center gap-3 font-spec text-[11px] tracking-[0.24em] text-blush uppercase">
               <span className="tailor-cross" />
-              The fit room
+              Probna soba
             </p>
             <h2 className="font-display text-5xl font-medium tracking-tight sm:text-7xl">
-              Three numbers,
+              Tri broja,
               <br />
-              <span className="italic text-blush">zero guesswork.</span>
+              <span className="italic text-blush">nula nagađanja.</span>
             </h2>
           </div>
           <p className="max-w-xs text-[14px] leading-relaxed text-paper/65">
-            Measure in centimetres over light clothing. We match you against
-            the real cut of each gown — its fabric, its stretch, its mercy.
+            Meri se u centimetrima, preko lagane odeće. Upoređujemo te sa
+            stvarnim krojem svake haljine — njenom tkaninom, elastinom,
+            milošću.
           </p>
         </div>
 
@@ -75,7 +82,7 @@ export default function FitFinder() {
           <div className="col-span-12 lg:col-span-5">
             <div className="border border-paper/30 bg-paper p-6 text-ink shadow-[8px_8px_0_rgba(216,168,160,0.35)] sm:p-8">
               <p className="mb-8 flex items-center justify-between font-spec text-[10px] tracking-[0.2em] text-ink-soft uppercase">
-                <span>Client measurement card</span>
+                <span>Merna karta klijentkinje</span>
                 <span className="text-oxblood">cm</span>
               </p>
 
@@ -103,7 +110,7 @@ export default function FitFinder() {
                       value={m[zone]}
                       onChange={(e) => set(zone, Number(e.target.value))}
                       className="tape-slider"
-                      aria-label={`${label} in centimetres`}
+                      aria-label={`${label} u centimetrima`}
                     />
                     <p className="mt-1 font-spec text-[10px] tracking-[0.12em] text-ink-soft uppercase">
                       {hint}
@@ -115,7 +122,7 @@ export default function FitFinder() {
               <div className="stitch-h mt-9 text-ink/40" />
               <p className="mt-5 text-[13px] leading-relaxed text-ink-soft">
                 <span className="font-spec text-[10px] tracking-[0.18em] text-oxblood uppercase">
-                  Fitter&apos;s note —{" "}
+                  Beleška krojačice —{" "}
                 </span>
                 {note}
               </p>
@@ -127,19 +134,19 @@ export default function FitFinder() {
             <div className="mb-6 flex items-baseline justify-between border-b border-paper/25 pb-3">
               <p className="font-display text-2xl italic">
                 {matches.length === 0
-                  ? "Nothing on the rail — yet."
-                  : `${matches.length} of ${matches.length + misses.length} gowns will fit you.`}
+                  ? "Na štenderu ništa — još."
+                  : `Staće ti ${matches.length} od ${matches.length + misses.length} haljina.`}
               </p>
               <p className="hidden font-spec text-[10px] tracking-[0.18em] text-paper/55 uppercase sm:block">
-                sorted by closeness of fit
+                poređano po bliskosti kroja
               </p>
             </div>
 
             {matches.length === 0 ? (
               <p className="max-w-md text-[14px] leading-relaxed text-paper/65">
-                These measurements fall outside our current size run. Write to
-                the atelier — alterations and made-to-measure are what we do
-                all winter.
+                Ove mere su van našeg trenutnog asortimana veličina. Piši
+                ateljeu — prepravke i šivenje po meri su nam omiljeni zimski
+                posao.
               </p>
             ) : (
               <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -148,11 +155,13 @@ export default function FitFinder() {
                     key={dress.id}
                     className="group flex gap-4 border border-paper/25 bg-paper/[0.04] p-4 transition-colors duration-300 hover:border-blush hover:bg-paper/[0.08]"
                   >
-                    <div className="w-16 shrink-0">
-                      <DressSketch
-                        silhouette={dress.silhouette}
-                        className="w-full text-paper/80 transition-colors duration-300 group-hover:text-blush"
-                        strokeWidth={3}
+                    <div className="relative w-16 shrink-0 self-start overflow-hidden border border-paper/25 aspect-[3/4]">
+                      <Image
+                        src={dress.image}
+                        alt={dress.name}
+                        fill
+                        sizes="64px"
+                        className="object-cover transition-transform duration-500 group-hover:scale-[1.07]"
                       />
                     </div>
                     <div className="flex min-w-0 flex-1 flex-col gap-1.5">
@@ -161,12 +170,12 @@ export default function FitFinder() {
                           {dress.name}
                         </h3>
                         <span className="font-spec text-[10px] text-paper/55">
-                          €{dress.pricePerNight}/n
+                          €{dress.pricePerNight}/noć
                         </span>
                       </div>
                       <p className="font-spec text-[10px] tracking-[0.16em] text-blush uppercase">
-                        {i === 0 && "Best match — "}
-                        Size {size.replace("FR", "FR ")} · {dress.silhouetteLabel}
+                        {i === 0 && "Najbolji kroj — "}
+                        Vel. {size.replace("FR", "FR ")} · {dress.silhouetteLabel}
                       </p>
                       <div className="mt-1 flex flex-wrap gap-1.5">
                         {(Object.keys(zones) as Zone[]).map((zone) => (
@@ -181,9 +190,9 @@ export default function FitFinder() {
 
             {misses.length > 0 && matches.length > 0 && (
               <p className="mt-6 font-spec text-[10px] leading-relaxed tracking-[0.14em] text-paper/45 uppercase">
-                Not in your measurements:{" "}
-                {misses.map((d) => d.name).join(" · ")} — ask the atelier about
-                alteration.
+                Nisu u tvojim merama:{" "}
+                {misses.map((d) => d.name).join(" · ")} — pitaj atelje za
+                prepravku.
               </p>
             )}
           </div>

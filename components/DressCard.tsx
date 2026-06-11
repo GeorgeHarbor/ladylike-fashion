@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Dress } from "@/lib/dresses";
 import DressSketch from "./DressSketch";
 
@@ -9,24 +10,29 @@ export default function DressCard({ dress }: { dress: Dress }) {
         <span>{dress.house}</span>
       </div>
 
-      <div
-        className="paper-grid relative flex items-center justify-center px-8 py-6"
-        style={{
-          backgroundColor: `color-mix(in srgb, ${dress.color} 7%, transparent)`,
-        }}
-      >
-        <DressSketch
-          silhouette={dress.silhouette}
-          className="sketch h-56 text-ink/85"
+      <div className="relative aspect-[3/4] overflow-hidden">
+        <Image
+          src={dress.image}
+          alt={`${dress.name} — ${dress.silhouetteLabel.toLowerCase()}, ${dress.colorName.toLowerCase()}`}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
         />
+        {/* Tracing-paper overlay: the atelier sketch slides over the photo */}
+        <div className="paper-grid pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-2 bg-paper/90 p-6 opacity-0 transition-opacity duration-400 group-hover:opacity-100">
+          <DressSketch
+            silhouette={dress.silhouette}
+            className="sketch h-[78%] text-ink/85"
+          />
+          <p className="font-spec text-[9px] tracking-[0.16em] text-ink-soft uppercase">
+            {dress.colorName} — {dress.fabric}
+          </p>
+        </div>
         <span
           className="absolute top-3 right-3 size-4 rounded-full border border-ink/40"
           style={{ backgroundColor: dress.color }}
           title={dress.colorName}
         />
-        <span className="pointer-events-none absolute bottom-3 left-3 font-spec text-[9px] tracking-[0.16em] text-ink-soft uppercase opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          {dress.colorName} — {dress.fabric}
-        </span>
       </div>
 
       <div className="flex flex-1 flex-col gap-2 border-t border-ink/20 px-4 pt-3 pb-4">
@@ -35,8 +41,7 @@ export default function DressCard({ dress }: { dress: Dress }) {
             {dress.name}
           </h3>
           <p className="font-spec text-[11px] whitespace-nowrap text-oxblood">
-            €{dress.pricePerNight}{" "}
-            <span className="text-ink-soft">/ night</span>
+            €{dress.pricePerNight} <span className="text-ink-soft">/ noć</span>
           </p>
         </div>
         <p className="text-[13px] leading-snug text-ink-soft">{dress.blurb}</p>

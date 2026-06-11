@@ -7,7 +7,7 @@ export default function Header() {
             Ladylike
           </span>
           <span className="hidden font-spec text-[10px] tracking-[0.22em] text-ink-soft sm:inline">
-            ATELIER &amp; RENTAL — EST. MMXXVI
+            ATELJE I IZNAJMLJIVANJE — EST. MMXXVI
           </span>
         </a>
 
@@ -16,19 +16,19 @@ export default function Header() {
             href="#collection"
             className="link-draw hidden font-spec text-[11px] tracking-[0.18em] uppercase sm:inline"
           >
-            Collection
+            Kolekcija
           </a>
           <a
             href="#how"
             className="link-draw hidden font-spec text-[11px] tracking-[0.18em] uppercase md:inline"
           >
-            The Service
+            Usluga
           </a>
           <a
             href="#fit-room"
             className="border border-ink bg-oxblood px-4 py-2 font-spec text-[11px] tracking-[0.18em] uppercase text-paper shadow-[3px_3px_0_rgba(36,27,18,0.3)] transition-all duration-200 hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0_rgba(36,27,18,0.3)]"
           >
-            Find your fit
+            Pronađi svoj kroj
           </a>
         </nav>
       </div>
